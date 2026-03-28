@@ -1,46 +1,35 @@
-# Canvas Grading Copilot (Edge Extension)
+# WOLF GRADING ASSISTANT (Edge Extension)
 
-This Microsoft Edge Manifest V3 extension injects a **movable, resizable grading assistant panel** into Canvas-like grading pages.
+A Microsoft Edge Manifest V3 extension that injects a **movable, resizable grading panel** for Canvas-like grading pages.
 
-## What this version supports
+## Key updates in this build
 
-- CSU Global 3-location feedback protocol:
-  1. Within the submission itself
-  2. Rubric comments for point deductions
-  3. Gradebook/assignment comment area
-- Right-side panel that can now be moved anywhere and resized larger/smaller.
-- Updated visual styling:
-  - pink top bar
-  - green **Analyze Pasted Text** button
-  - dark red section headers
-  - larger default font for readability
-- 2–3 sentence feedback comments throughout generated output.
-- Expanded comment bank with:
-  - Executive Summary
-  - Background & Management Issue
-  - Analysis Using Course Tools
-  - Recommendations
-  - APA, Research & Writing Quality
-  - BUS131 CLO 7 guidance
-  - quick-hit deduction comments
+- App renamed to **WOLF GRADING ASSISTANT**.
+- Larger fonts and higher-contrast readability.
+- Pink header, green Analyze Pasted Text button, dark red headers.
+- Rubric cards now show:
+  - bold **SCORE** line at top
+  - color-changing score text (red to green by performance)
+  - bold uppercase **COMMENT** label
+  - yellow-highlighted comment text
+- Copy behavior now copies only the comment text (not rubric title/score labels), and uses first-name personalization (e.g., `Khailah, ...`) when generated from rubric comments.
+- Within-submission comments now include copy buttons for:
+  - find words only
+  - comment only
+- Within-submission section now generates at least **3 comments per page**.
+- Removed the separate “Rubric: Comments for Point Deductions” section and merged score+comment handling into the top rubric section.
+- Removed the “Final Practical Checklist Before Submit Assessment” section.
 
-## Install in Edge (Developer Mode)
+## Install in Edge Developer Mode
 
 1. Open `edge://extensions`.
-2. Enable **Developer mode**.
+2. Turn on **Developer mode**.
 3. Click **Load unpacked**.
 4. Select this folder (`/workspace/Grading`).
-5. Open your Canvas grading page and run the panel.
 
 ## Usage
 
-1. Click **Analyze Open Page** to read visible Canvas text.
-2. Or paste full submission/rubric text and click **Analyze Pasted Text**.
-3. Drag the header to move the panel.
-4. Drag the bottom-right corner to resize.
-5. Copy outputs using per-item **Copy** buttons or **Copy Full Report**.
-
-## Notes
-
-- The tool uses deterministic heuristics (no external AI API required).
-- If content is inside a restricted iframe, paste full text manually.
+1. Click **Analyze Open Page** or paste text and click **Analyze Pasted Text**.
+2. Drag the header to move panel position.
+3. Resize from the bottom-right corner.
+4. Use Copy buttons to copy only the specific text block you need.
