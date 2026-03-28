@@ -13,8 +13,7 @@ Edge Manifest V3 extension for grading support in Canvas-like pages.
 - Requirements
 - Content
 - Critical Analysis
-- Demonstrates college-level proficiency
-- APA style
+- APA review
 
 ## UI updates
 
@@ -23,7 +22,9 @@ Edge Manifest V3 extension for grading support in Canvas-like pages.
 - Removed **Rubric Scores + Comments** header block.
 - Copy buttons now show only **Copy**.
 - Rubric card copy action copies only the personalized comment text.
-- Quick-Hit comment bank is now compact as a dropdown (`details + select`).
+- Quick-Hit comment bank is compact as a dropdown (`details + select`).
+- Note: binary icon assets removed from this branch to avoid PR systems that reject binary files.
+- Student first name extraction now prioritizes the top-right Canvas header name.
 
 ## Install
 

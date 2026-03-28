@@ -10,8 +10,7 @@
     { key: "requirements", label: "Requirements", max: 15 },
     { key: "content", label: "Content", max: 25 },
     { key: "critical", label: "Critical Analysis", max: 25 },
-    { key: "college", label: "Demonstrates college-level proficiency", max: 5 },
-    { key: "apa", label: "APA style", max: 5 }
+    { key: "apa_review", label: "APA review", max: 5 }
   ];
 
   const COMMENT_BANK = {
@@ -78,28 +77,7 @@
         "I did not see meaningful critical analysis for this category. Please revise by adding evaluation, justification, and interpretation of implications."
       ]
     },
-    "Demonstrates college-level proficiency": {
-      Excellent: [
-        "Organization and writing quality are strong in this section. The structure is clear, language is professional, and readability supports your ideas. This reflects college-level proficiency.",
-        "Your writing here is polished and logically organized. Sentence and paragraph flow make the analysis easy to follow. Keep this same level of clarity throughout the full submission."
-      ],
-      Proficient: [
-        "The writing is generally organized and understandable. A few transitions or sentence-level edits would improve flow and precision. With light proofreading, this category can move higher.",
-        "This section is readable and mostly well structured. Some wording and organization choices can be tightened for stronger clarity. Focus on transition quality and concise sentence design."
-      ],
-      "Fair / Developing": [
-        "The core ideas are present, but writing quality and organization are uneven. I noticed areas where flow and sentence clarity break down. Strengthen paragraph structure and proofread for grammar consistency.",
-        "Organization is partially visible, though several parts feel disjointed. Sentence quality and clarity need more revision for college-level polish. A focused editing pass will help significantly."
-      ],
-      "Needs Improvement": [
-        "This area needs substantial revision in organization and writing quality. Clarity issues and structural gaps make the analysis difficult to follow. Reorganize by section purpose and complete a careful proofreading pass.",
-        "Writing and structure are currently below expected proficiency for this category. Ideas are difficult to follow due to organization and sentence-level issues. Rebuild flow first, then edit for clarity and correctness."
-      ],
-      "No Submission / Off Topic": [
-        "I did not see sufficient college-level organization/writing evidence for this category. Please revise for clearer structure, sentence quality, and grammatical accuracy."
-      ]
-    },
-    "APA style": {
+    "APA review": {
       Excellent: [
         "APA formatting is handled effectively and supports professional presentation. Citation and reference style are consistent enough to keep focus on your ideas. Nice work maintaining scholarly standards.",
         "This section demonstrates strong APA control and clear source presentation. Citation mechanics do not distract from content. Keep this same consistency in future submissions."
@@ -135,11 +113,7 @@
       "Your reasoning is visible; add one clear alternatives comparison.",
       "Push beyond summary and justify why your recommendation is strongest."
     ],
-    "Demonstrates college-level proficiency": [
-      "Clear structure overall; strengthen transitions and sentence precision.",
-      "Readable draft. A focused editing pass will improve clarity and flow."
-    ],
-    "APA style": [
+    "APA review": [
       "Good direction. Align all in-text citations with references.",
       "Clean up APA details so your strong ideas read more professionally."
     ]
@@ -274,14 +248,35 @@
     return h;
   }
 
+  function detectStudentNameFromTopBar() {
+    const candidates = [];
+    const nodes = Array.from(document.querySelectorAll('body *'));
+    for (const node of nodes) {
+      if (!(node instanceof HTMLElement)) continue;
+      const text = (node.innerText || '').trim();
+      if (!text || text.length > 40) continue;
+      const rect = node.getBoundingClientRect();
+      if (rect.top < 0 || rect.top > 180) continue;
+      if (rect.left < window.innerWidth * 0.55) continue;
+      if (!/^[A-Z][a-z]+\s+[A-Z][a-z]+$/.test(text)) continue;
+      if (/Average|Graded|Students|Module|Critical|Thinking/.test(text)) continue;
+      candidates.push(text);
+    }
+    return candidates[0] || '';
+  }
+
   function extractMeta(raw) {
     const lines = raw.split(/\n+/).map((l) => l.trim()).filter(Boolean);
     let firstName = "Student";
-    for (const line of lines.slice(0, 20)) {
-      const m = line.match(/^([A-Z][a-z]+)\s+[A-Z][a-z]+/);
-      if (m) {
-        firstName = m[1];
-        break;
+    const topBar = detectStudentNameFromTopBar();
+    if (topBar) firstName = topBar.split(' ')[0];
+    if (firstName === "Student") {
+      for (const line of lines.slice(0, 20)) {
+        const m = line.match(/^([A-Z][a-z]+)\s+[A-Z][a-z]+/);
+        if (m) {
+          firstName = m[1];
+          break;
+        }
       }
     }
     const pages = [...raw.matchAll(/Page\s+\d+\s+of\s+(\d+)/gi)].map((m) => Number(m[1]));
@@ -321,8 +316,7 @@
     if (/requirement/i.test(l)) return "Requirements";
     if (/content/i.test(l)) return "Content";
     if (/critical/i.test(l)) return "Critical Analysis";
-    if (/college|organization|grammar|style/i.test(l)) return "Demonstrates college-level proficiency";
-    if (/apa/i.test(l)) return "APA style";
+    if (/apa|citation|reference|grammar|style|organization|college/i.test(l)) return "APA review";
     return label;
   }
 
@@ -351,7 +345,7 @@
     if (/Critical Analysis/.test(std) && /recommend/i.test(paperText) && !/alternative/i.test(paperText)) {
       text += " I recommend adding one short comparison of alternatives to show why your final choice is strongest.";
     }
-    if (/APA style/.test(std) && !/\(.*?,\s*\d{4}\)/.test(paperText)) {
+    if (/APA review/.test(std) && !/\(.*?,\s*\d{4}\)/.test(paperText)) {
       text += " I also recommend adding consistent in-text citations where ideas are paraphrased.";
     }
 
