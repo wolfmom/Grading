@@ -1,35 +1,34 @@
 # WOLF GRADING ASSISTANT (Edge Extension)
 
-A Microsoft Edge Manifest V3 extension that injects a **movable, resizable grading panel** for Canvas-like grading pages.
+Edge Manifest V3 extension for grading support in Canvas-like pages.
 
-## Key updates in this build
+## Important behavior
 
-- App renamed to **WOLF GRADING ASSISTANT**.
-- Larger fonts and higher-contrast readability.
-- Pink header, green Analyze Pasted Text button, dark red headers.
-- Rubric cards now show:
-  - bold **SCORE** line at top
-  - color-changing score text (red to green by performance)
-  - bold uppercase **COMMENT** label
-  - yellow-highlighted comment text
-- Copy behavior now copies only the comment text (not rubric title/score labels), and uses first-name personalization (e.g., `Khailah, ...`) when generated from rubric comments.
-- Within-submission comments now include copy buttons for:
-  - find words only
-  - comment only
-- Within-submission section now generates at least **3 comments per page**.
-- Removed the separate “Rubric: Comments for Point Deductions” section and merged score+comment handling into the top rubric section.
-- Removed the “Final Practical Checklist Before Submit Assessment” section.
+- The panel appears **only when you click the extension icon** in the browser toolbar.
+- Clicking the icon again toggles hide/show.
+- No always-on auto panel injection.
 
-## Install in Edge Developer Mode
+## Current rubric labels used
+
+- Requirements
+- Content
+- Critical Analysis
+- Demonstrates college-level proficiency
+- APA style
+
+## UI updates
+
+- Removed **Analyze Open Page** button.
+- Removed **Copy Full Report** button.
+- Removed **Rubric Scores + Comments** header block.
+- Copy buttons now show only **Copy**.
+- Rubric card copy action copies only the personalized comment text.
+- Quick-Hit comment bank is now compact as a dropdown (`details + select`).
+
+## Install
 
 1. Open `edge://extensions`.
 2. Turn on **Developer mode**.
 3. Click **Load unpacked**.
-4. Select this folder (`/workspace/Grading`).
-
-## Usage
-
-1. Click **Analyze Open Page** or paste text and click **Analyze Pasted Text**.
-2. Drag the header to move panel position.
-3. Resize from the bottom-right corner.
-4. Use Copy buttons to copy only the specific text block you need.
+4. Select this folder.
+5. Click the extension icon to summon the panel.

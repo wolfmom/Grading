@@ -3,7 +3,7 @@
   z-index: 2147483647;
   width: 520px;
   min-width: 360px;
-  min-height: 300px;
+  min-height: 260px;
   max-width: 95vw;
   max-height: 95vh;
   background: #fff;
@@ -11,14 +11,13 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   font-family: Arial, sans-serif;
-  font-size: 18px;
+  font-size: 19px;
   color: #1f2330;
   resize: both;
   overflow: hidden;
 }
 
 #wolf-grading-assistant * { box-sizing: border-box; }
-
 #wolf-grading-assistant.wga-dragging { user-select: none; }
 
 #wolf-grading-assistant.wga-hidden .wga-body,
@@ -33,7 +32,7 @@
   resize: none;
 }
 
-#wolf-grading-assistant #wga-open-tab {
+#wga-open-tab {
   display: none;
   background: #1f4bb8;
   color: #fff;
@@ -41,13 +40,10 @@
   border-radius: 999px;
   padding: 12px 16px;
   font-size: 16px;
-  cursor: pointer;
 }
 
 #wolf-grading-assistant.wga-hidden #wga-open-tab { display: inline-block; }
-
 #wolf-grading-assistant.wga-minimized .wga-body { display: none; }
-
 #wolf-grading-assistant.wga-minimized { width: 320px; min-height: 0; }
 
 .wga-header {
@@ -61,12 +57,7 @@
   cursor: move;
 }
 
-.wga-title {
-  font-weight: 800;
-  font-size: 22px;
-  letter-spacing: 0.3px;
-}
-
+.wga-title { font-weight: 800; font-size: 22px; }
 .wga-header-actions { display: flex; gap: 6px; }
 
 .wga-head-btn {
@@ -77,31 +68,28 @@
   color: #fff;
   background: rgba(255,255,255,0.17);
   font-size: 16px;
-  cursor: pointer;
 }
 
 .wga-body {
   height: calc(100% - 56px);
-  min-height: 220px;
+  min-height: 210px;
   overflow: auto;
   padding: 12px;
-  font-size: 18px;
-  line-height: 1.55;
+  font-size: 19px;
+  line-height: 1.58;
 }
 
-.wga-controls {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
-}
+.wga-controls { display: flex; gap: 8px; margin-bottom: 8px; }
 
 #wolf-grading-assistant button {
   font-size: 16px;
-  padding: 8px 11px;
+  padding: 7px 10px;
   cursor: pointer;
 }
 
-#wga-analyze-paste {
+#wga-analyze-paste,
+.wga-copy,
+.wga-copy-select {
   background: #1b9e3c;
   border: 1px solid #147a2e;
   color: #fff;
@@ -111,7 +99,7 @@
 
 #wolf-grading-assistant textarea {
   width: 100%;
-  min-height: 145px;
+  min-height: 130px;
   padding: 10px;
   margin: 8px 0 10px;
   border: 1px solid #bcc7d9;
@@ -126,24 +114,15 @@
   background: #f8faff;
   padding: 10px;
   margin: 10px 0;
-  font-size: 17px;
+  font-size: 18px;
 }
 
-.wga-block strong {
-  color: #7a0019;
-  font-size: 20px;
-}
-
-.wga-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-}
+.wga-block strong { color: #7a0019; font-size: 21px; }
+.wga-row { display: flex; justify-content: space-between; gap: 8px; }
 
 .wga-score {
-  margin-top: 4px;
-  margin-bottom: 4px;
-  font-size: 19px;
+  margin: 4px 0;
+  font-size: 21px;
   font-weight: 800;
 }
 
@@ -153,42 +132,35 @@
   border-radius: 3px;
 }
 
-.wga-copy {
-  background: #1b9e3c;
-  border: 1px solid #147a2e;
-  color: #fff;
-  font-size: 15px !important;
-  padding: 5px 8px !important;
+.wga-mini-actions { display: flex; gap: 6px; margin-top: 6px; }
+.wga-find { font-weight: 700; text-decoration: underline; }
+
+.wga-quickhit {
+  margin-top: 8px;
+  border-top: 1px dashed #ccc;
+  padding-top: 6px;
 }
 
-.wga-mini-actions {
+.wga-quickhit summary {
+  font-size: 15px;
+  color: #7a0019;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.wga-quickhit-inner {
+  margin-top: 6px;
   display: flex;
   gap: 6px;
-  margin-top: 6px;
 }
 
-.wga-comment-line {
-  margin-top: 4px;
-  margin-bottom: 4px;
+.wga-select {
+  flex: 1;
+  font-size: 14px;
 }
 
-.wga-find {
-  font-weight: 700;
-  text-decoration: underline;
-}
-
-.wga-error {
-  color: #a10020;
-  font-weight: 700;
-  font-size: 17px;
-}
+.wga-error { color: #a10020; font-weight: 700; font-size: 17px; }
 
 #wolf-grading-assistant ul,
-#wolf-grading-assistant ol {
-  margin: 7px 0;
-  padding-left: 20px;
-}
-
-#wolf-grading-assistant li {
-  margin: 8px 0;
-}
+#wolf-grading-assistant ol { margin: 7px 0; padding-left: 20px; }
+#wolf-grading-assistant li { margin: 8px 0; }
