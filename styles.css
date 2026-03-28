@@ -1,0 +1,166 @@
+#wolf-grading-assistant {
+  position: fixed;
+  z-index: 2147483647;
+  width: 520px;
+  min-width: 360px;
+  min-height: 260px;
+  max-width: 95vw;
+  max-height: 95vh;
+  background: #fff;
+  border: 1px solid #cfd4e4;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 19px;
+  color: #1f2330;
+  resize: both;
+  overflow: hidden;
+}
+
+#wolf-grading-assistant * { box-sizing: border-box; }
+#wolf-grading-assistant.wga-dragging { user-select: none; }
+
+#wolf-grading-assistant.wga-hidden .wga-body,
+#wolf-grading-assistant.wga-hidden .wga-header { display: none; }
+
+#wolf-grading-assistant.wga-hidden {
+  width: auto;
+  min-height: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  resize: none;
+}
+
+#wga-open-tab {
+  display: none;
+  background: #1f4bb8;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 16px;
+  font-size: 16px;
+}
+
+#wolf-grading-assistant.wga-hidden #wga-open-tab { display: inline-block; }
+#wolf-grading-assistant.wga-minimized .wga-body { display: none; }
+#wolf-grading-assistant.wga-minimized { width: 320px; min-height: 0; }
+
+.wga-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ff5fa2;
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 10px 10px 0 0;
+  cursor: move;
+}
+
+.wga-title { font-weight: 800; font-size: 22px; }
+.wga-header-actions { display: flex; gap: 6px; }
+
+.wga-head-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 4px;
+  color: #fff;
+  background: rgba(255,255,255,0.17);
+  font-size: 16px;
+}
+
+.wga-body {
+  height: calc(100% - 56px);
+  min-height: 210px;
+  overflow: auto;
+  padding: 12px;
+  font-size: 19px;
+  line-height: 1.58;
+}
+
+.wga-controls { display: flex; gap: 8px; margin-bottom: 8px; }
+
+#wolf-grading-assistant button {
+  font-size: 16px;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+
+#wga-analyze-paste,
+.wga-copy,
+.wga-copy-select {
+  background: #1b9e3c;
+  border: 1px solid #147a2e;
+  color: #fff;
+}
+
+#wolf-grading-assistant label { font-size: 17px; }
+
+#wolf-grading-assistant textarea {
+  width: 100%;
+  min-height: 130px;
+  padding: 10px;
+  margin: 8px 0 10px;
+  border: 1px solid #bcc7d9;
+  border-radius: 8px;
+  resize: vertical;
+  font-size: 17px;
+}
+
+.wga-block {
+  border: 1px solid #d7ddec;
+  border-radius: 9px;
+  background: #f8faff;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.wga-block strong { color: #7a0019; font-size: 21px; }
+.wga-row { display: flex; justify-content: space-between; gap: 8px; }
+
+.wga-score {
+  margin: 4px 0;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.wga-highlight {
+  background: #fff59d;
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+
+.wga-mini-actions { display: flex; gap: 6px; margin-top: 6px; }
+.wga-find { font-weight: 700; text-decoration: underline; }
+
+.wga-quickhit {
+  margin-top: 8px;
+  border-top: 1px dashed #ccc;
+  padding-top: 6px;
+}
+
+.wga-quickhit summary {
+  font-size: 15px;
+  color: #7a0019;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.wga-quickhit-inner {
+  margin-top: 6px;
+  display: flex;
+  gap: 6px;
+}
+
+.wga-select {
+  flex: 1;
+  font-size: 14px;
+}
+
+.wga-error { color: #a10020; font-weight: 700; font-size: 17px; }
+
+#wolf-grading-assistant ul,
+#wolf-grading-assistant ol { margin: 7px 0; padding-left: 20px; }
+#wolf-grading-assistant li { margin: 8px 0; }
