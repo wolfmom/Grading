@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Canvas Grading Copilot",
+  "version": "1.0.0",
+  "description": "Creates a right-side grading panel in Canvas with rubric-aligned scoring suggestions, feedback, and quick-copy actions.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_title": "Canvas Grading Copilot"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

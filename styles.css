@@ -1,0 +1,139 @@
+#cgc-panel {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 2147483647;
+  width: 380px;
+  max-height: calc(100vh - 32px);
+  background: #ffffff;
+  border: 1px solid #cdd4e0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  color: #1b2330;
+}
+
+#cgc-panel * { box-sizing: border-box; }
+
+#cgc-panel.cgc-hidden .cgc-body,
+#cgc-panel.cgc-hidden .cgc-header { display: none; }
+
+#cgc-panel.cgc-hidden {
+  width: auto;
+  height: auto;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+#cgc-panel.cgc-hidden #cgc-open-tab {
+  display: inline-block;
+}
+
+#cgc-panel #cgc-open-tab {
+  display: none;
+  background: #1f4bb8;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+#cgc-panel.cgc-minimized .cgc-body { display: none; }
+
+#cgc-panel.cgc-minimized {
+  width: 260px;
+}
+
+.cgc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1f4bb8;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 10px 12px;
+}
+
+.cgc-title {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.cgc-header-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.cgc-head-btn {
+  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.cgc-body {
+  overflow: auto;
+  max-height: calc(100vh - 90px);
+  padding: 10px;
+}
+
+.cgc-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+#cgc-panel button {
+  cursor: pointer;
+}
+
+#cgc-panel textarea {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  border: 1px solid #bcc7d9;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 6px 0 10px;
+  font-size: 12px;
+}
+
+.cgc-block {
+  border: 1px solid #dbe3f1;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 8px 0;
+  background: #f9fbff;
+  font-size: 12px;
+}
+
+.cgc-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cgc-copy {
+  font-size: 11px;
+  padding: 2px 6px;
+}
+
+.cgc-error {
+  color: #a62323;
+  font-weight: 600;
+}
+
+#cgc-panel ul {
+  margin: 6px 0;
+  padding-left: 16px;
+}
+
+#cgc-panel li {
+  margin: 6px 0;
+}
